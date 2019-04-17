@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {{ title }}
+    <h1>{{ title }}</h1>
 
-    {{ request.user }}
-    {{ user.path }}
-
-    {{ user.is_authenticated }}
-
-    {% for item in my_list %}
-        <li>{{ item }}</li>
+    {% for a in blog_list %}
+        {% include "blog/list-inline.html"  with blog_post=a truncate=True detail=False %}
     {% endfor %}
 
 
